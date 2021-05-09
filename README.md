@@ -1,27 +1,55 @@
-# Movies
+# Wookie Movies
+## _Vapulus Senior Front Assignment_
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
 
-## Development server
+> `We have three main routes ` .
+- movies/list
+- movies/details/:slug
+- ✨movies/bookmarks ✨
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- List all movies from https://wookie.codesubmit.io/movies then group them by category.
+- You can search using text input which exist in the header
+- Get details of each movie through details button or clicking on the card image
+- `You can bookmark any movie by clicking on the bookmark icon`
+- View all bookmarked movies by clicking on `View Bookmarks` button exist in the header
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Project Structure
+We have four basic module
+> App Module : which contains the entry point of the app
 
-## Build
+> Core Module : which is designed for singleton services shared throughout the application and the main layout, `it also contains our state management logic`
+- State 
+- Actions
+- Reducers
+- Effects
+- Sellectors
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+> Shared Module : which will contain the shared functionalities like components , pipes , or any custom functionality.  `We will use it later` as the project at the current state doesnot have more logic
 
-## Running unit tests
+> Movies Feature Module : a lazy loaded module that contains the logic & routes of our feature
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Tech Main Points
 
-## Running end-to-end tests
+- Angular 11
+- Sass
+- MediaQuery
+- FlexBox
+- Angular Material
+- NGRX
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Installation
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+Install the dependencies and devDependencies and start .
+
+```sh
+cd movies
+npm i
+npm run start
+```
+
+**Mohammed Ibrahim Al behairy!**
+FullStack Developer

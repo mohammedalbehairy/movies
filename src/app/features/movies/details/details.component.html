@@ -1,0 +1,46 @@
+<div class="container">
+  <div *ngIf="!(movie$|async)">
+    <h1>No data in the store</h1>
+  </div>
+
+  <div class="card" *ngIf="movie$|async">
+
+    <div class="image">
+      <img src="{{ (movie$|async).poster }}" alt="{{ (movie$|async).slug}}">
+    </div>
+    <div class="content">
+      <div class="head">
+        <h1>{{ (movie$|async).title }}</h1>
+
+        <div class="stars">
+          <li>
+            <a href="javascript:void(0)" *ngFor="let item of [].constructor(10); let i = index;">
+              <i *ngIf="i < ((movie$|async).imdb_rating | number : '1.0-0')" class="fa fa-star"></i>
+              <i *ngIf="i >= ((movie$|async).imdb_rating | number : '1.0-0')" class="fa fa-star-o"></i>
+            </a>
+            <span> {{(movie$|async).imdb_rating}}</span>
+          </li>
+        </div>
+      </div>
+
+      <div class="details">
+        <div class="info">Info :
+          <span>{{ (movie$|async).released_on | date: 'dd/MM/yyyy' }}</span>|&nbsp;
+          <span>{{ (movie$|async).length }}</span>|&nbsp;
+          <span>{{ (movie$|async).director }}</span>
+        </div>
+        <div class="cast">
+          Cast : <span *ngFor="let user of (movie$|async).cast">{{user}}</span>
+        </div>
+        <div class="genres">
+          <div><span *ngFor="let genre of (movie$|async).genres">{{genre}}</span>
+          </div>
+          <span>{{ (movie$|async).classification }}</span>
+        </div>
+        <p>{{ (movie$|async).overview }}</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<ng-template [ngIf]="movies$|async">
+  <div class="movie_card" id="bright" *ngFor="let movie of movies$|async">
+    <div class="info_section">
+      <div class="movie_header">
+        <img class="locandina" src="{{movie.backdrop}}" />
+        <h1>{{movie.title}}</h1>
+        <h4>{{movie.released_on | date: 'dd/MM/yyyy' }}</h4>
+        <span class="minutes">{{movie.length}}</span>
+        <p class="type"><span *ngFor="let genre of movie.genres">{{genre}} - </span></p>
+      </div>
+      <div class="movie_desc">
+        <p class="text">{{movie.overview | slice:0:200}}...
+        </p>
+      </div>
+    </div>
+    <div class="blur_back bright_back">
+      <img class="locandina" src="{{movie.backdrop}}" />
+    </div>
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="!(movies$|async)">
+  <div class="container page">
+    <div class="card">
+      <h2>
+        No0o0o Bookmarks
+      </h2>
+      <button (click)="viewList()">Back To List</button>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="flex_layout">
+    <div class="card" *ngFor="let movie of movies$|async">
+      <div class="card-img">
+        <img (click)="viewDetails(movie.slug)" src="{{movie.backdrop}}" alt="{{movie.slug}}">
+      </div>
+      <div class="content">
+        <div class="info">
+          <div class="txt">
+            <h3 class="title">{{movie.title}}</h3>
+            <p class="slug">{{movie.slug}}</p>
+          </div>
+          <div class="stars">
+            
+            <div class="icon">
+              <a (click)="bookmark(movie)"><i class="fa fa-bookmark-o" title="Bookmark This Movie"></i></a>
+            </div>
+
+            <li>
+              <a href="javascript:void(0)" *ngFor="let item of [].constructor(10); let i = index;">
+                <i *ngIf="i < (movie.imdb_rating | number : '1.0-0')" class="fa fa-star"></i>
+                <i *ngIf="i >= (movie.imdb_rating | number : '1.0-0')" class="fa fa-star-o"></i>
+              </a>
+              {{movie.imdb_rating}}
+            </li>
+          </div>
+        </div>
+        <div class="details">
+          <i class="fa fa-clock-o">{{movie.length}}</i>
+          <i class="fa fa-users">{{movie.classification}}</i>
+        </div>
+        <div class="desc"> {{movie.overview | slice:0:80}}...</div>
+      </div>
+      <div class="actions">
+        <button (click)="viewDetails(movie.slug)">Details</button>
+      </div>
+    </div>
+  </div>
+</div>

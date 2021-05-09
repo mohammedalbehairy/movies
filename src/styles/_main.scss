@@ -1,0 +1,48 @@
+// @import "~swiper/css/swiper.css";
+
+@import "./theme/mixins";
+
+* {
+  font-family: $defaultFamily;
+}
+
+.mobile-only {
+  display: none;
+
+  @media (max-width: $breakpointSm) {
+    display: initial;
+  }
+}
+
+.hide-on-mobile {
+  @media (max-width: $breakpointSm) {
+    display: none;
+  }
+}
+
+
+.px-mobile-0 {
+  @include mobile {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+
+
+html,
+body {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 80%;
+  margin: auto !important;
+}

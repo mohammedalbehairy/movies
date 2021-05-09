@@ -1,0 +1,11 @@
+<div *ngFor="let genre of genres">
+  <h3>{{genre}}</h3>
+  <swiper [config]="config">
+    <div class="swiper-wrapper">
+      <img class="swiper-slide" *ngFor="let img of data" [src]="img.backdrop" [alt]="1" />
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </swiper>
+</div>
